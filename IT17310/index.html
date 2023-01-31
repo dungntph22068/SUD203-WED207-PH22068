@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- ng-app la thuoc tinh dinh nghia vung quan ly cua angularjs -->
+
+<!-- B1:dinh nghia gia tri gia tri cho ng-app o body -->
+
+<body ng-app="angular-app">
+    <h1>Tai tai nguyen angular.org</h1>
+
+    <!-- ANgular se chia vung de quan ly
+    moi vung la 1 controller -->
+
+    <div ng-controller="topController">
+        <p>Ten: {{name}}</p>
+        <p>Tuoi: {{age}}</p>
+        <p>Dia chi: {{adderss}}</p>
+    </div>
+
+    <div ng-controller="midController">
+        <p>Ten tuong: {{champion.name}}</p>
+        <p>Chieu thuc: {{champion.skill}}</p>
+        <p>Trang thai:{{
+            champion.status
+                ? 'Hoat dong'
+                : 'Khong hoat dong'
+        }}</p>
+    </div>
+
+    <div ng-controller="botController">
+        <p>dungTien</p>
+    </div>
+
+    <!-- Nhung angular vao day -->
+    <script src="./lib2/angular.min.js"></script>
+    <!-- Code xu ly angularjs o the script tiep theo -->
+
+    <!-- B2:dinh nghia bien quan ly vung ng-ap da chi dinh nghia -->
+
+
+    <script>
+        // doi tuong angular dc angular.min.js cung cap
+        // phuong thuc module chi dinh vung se tuong tac
+        
+        var app= angular.module('angular-app',[]);
+
+        // dinh nghia tung vung giao dien theo controller
+        app.controller('topController', function ($scope){
+            $scope.name="Anhdung1234";
+            $scope.age="20";
+            $scope.adderss="Ha noi";
+        });
+
+        app.controller('midController', function ($scope){
+            // $scope.name="Anhdung1234";
+            // $scope.age="20";
+            // $scope.adderss="Ha noi";
+            $scope.champion = {
+                name:'Garena',
+                skill:'Ulti chang duong',
+                status:1//1:hoat dong,0:khong hoat dong
+            }
+        });
+    </script>
+</body>
+</html>

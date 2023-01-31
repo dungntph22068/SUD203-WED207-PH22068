@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logic</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body ng-app="angularjs-logic">
+
+    <!-- <div ng-controller="loopController">
+        <ul>
+            <!-- users laf mang khia bao $scope -->
+            <!-- user la phan tu o moi vong lap -->
+            <li ng-repeat="motNguoidung in dsNguoiDung">
+                <p>Ma nguoi:{{motNguoidung.id}}</p>
+                <p>Ten:{{motNguoidung.name}}</p>
+            </li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ma nguoi dung</th>
+                    <th>Ten nguoi dung</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="motNguoidung in dsNguoiDung">
+                    <td>{{motNguoidung.id}}</td>
+                    <td>{{motNguoidung.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>     -->
+
+
+<div ng-controller="1loopController">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+           
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="sinhvien in dssinhvien">
+            <td>{{sinhvien.id}}</td>
+            <td>{{sinhvien.name}}</td>
+            <td>{{sinhvien.email}}</td>
+            <td><img src="{{sinhvien.avatar}}" alt="" width="50px" height="50px"></td>
+            <td>   {{ sinhvien.status
+                ? 'Kich hoat'
+                : 'Khong kich hoat'
+                 }}
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+</div>
+  
+
+    <script src="./lib2/angular.min.js"></script>
+    <script>
+        var app=angular.module('angularjs-logic',[]);
+        // loopController
+        app.controller('loopController',function($scope){
+            $scope.dsNguoiDung= [
+                {id:1,name:"Nguyen Tien Dung"},
+                {id:2,name:"Nguyen Van KK"}
+            ] ;
+        });
+
+        app.controller('1loopController',function($scope){
+            $scope.dssinhvien= [
+                {id:1,name:"Nguyen Tien Dung",email:"dungntph@gmail.com",avatar:"11.jpg",status:"1"},
+                {id:2,name:"Nguyen Van Khu",email:"minhntph@gmail.com",avatar:"8.jpg",status:"1"}
+            ] ;
+        });
+    </script>
+</body>
+</html>
